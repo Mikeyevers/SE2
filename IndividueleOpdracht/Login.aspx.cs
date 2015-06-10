@@ -11,11 +11,16 @@ namespace IndividueleOpdracht
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DatabaseConnection connection = new DatabaseConnection();
-         
+            // Administration is de class die o.a. de database connectie bevat,         
+            administration = new Administration();
+
+
+
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        public Administration administration { get; set; }
+
+        public void LoginBtn_Click(object sender, EventArgs e)
         {
             
         }

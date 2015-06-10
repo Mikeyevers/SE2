@@ -8,15 +8,18 @@
         <fieldset>
             <legend>Inloggen</legend>
             <div class="form-group">
-                <label for="inputEmail" class="col-lg-2 control-label">Email</label>
                 <div class="col-lg-10">
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" />
+                    <asp:TextBox runat="server" type="email" class="form-control" id="inputEmail" placeholder="Email" ></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-                <div class="col-lg-10">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" />
+                <div class="col-lg-10">                    
+                    <asp:TextBox runat="server" type="password" class="form-control" id="inputPassword" placeholder="Wachtwoord" ></asp:TextBox>
+                </div>
+            </div>
+            <div class="form-group"> 
+                <div class="col-lg-10">  
+                  <asp:Button ID="LoginBtn" runat="server" Text="Inloggen" CssClass="btn btn-warning" OnClick="LoginBtn_Click" />
                 </div>
             </div>
         </fieldset>
