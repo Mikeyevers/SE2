@@ -5,18 +5,79 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>edu.Marktplaats</title>
-    <link rel="stylesheet" href="~/bootstrap/css/material.css" type="text/css" runat="server"/>
-    <script src="bootstrap/js/material.js"></script> 
+    <link href="stylesheet.css" rel="stylesheet" />
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
+    <link href="Bootstrap/css/roboto.min.css" rel="stylesheet" />
+    <link href="Bootstrap/css/material-fullpalette.min.css" rel="stylesheet" />
+    <link href="Bootstrap/css/ripples.min.css" rel="stylesheet" />
+
+    <script src="Bootstrap/js/ripples.min.js"></script>
+    <script src="Bootstrap/js/material.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // This command is used to initialize some elements and make them work properly
+            $.material.init();
+        });
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <div class="navbar navbar-warning">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-warning-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="javascript:void(0)">Brand</a>
+      </div>
+      <div class="navbar-collapse collapse navbar-warning-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="javascript:void(0)">Active</a></li>
+          <li><a href="javascript:void(0)">Link</a></li>
+          <li class="dropdown">
+            <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:void(0)">Action</a></li>
+              <li><a href="javascript:void(0)">Another action</a></li>
+              <li><a href="javascript:void(0)">Something else here</a></li>
+              <li class="divider"></li>
+              <li class="dropdown-header">Dropdown header</li>
+              <li><a href="javascript:void(0)">Separated link</a></li>
+              <li><a href="javascript:void(0)">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-left">
+          <input type="text" class="form-control col-lg-8" placeholder="Search" />
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="javascript:void(0)">Link</a></li>
+          <li class="dropdown">
+            <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:void(0)">Action</a></li>
+              <li><a href="javascript:void(0)">Another action</a></li>
+              <li><a href="javascript:void(0)">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:void(0)">Separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        <p> test</p>
         </asp:ContentPlaceHolder>
     </div>
-    </form>
+    
 </body>
 </html>
