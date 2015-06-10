@@ -32,7 +32,8 @@ namespace IndividueleOpdracht
                 }
                 else
                 {
-                    // ***Laat gebruiker zien dat inloggen is mislukt.
+                    // Laat gebruiker zien dat inloggen is mislukt.
+                    LoginFailureText.Visible = true;
                 }
             }
             else

@@ -49,17 +49,17 @@ namespace IndividueleOpdracht
                 }
 
                 Adverteerder adverteerder = new Adverteerder(adverteerderNummer, emailadres.ToLower(), naam, postcode, telefoonnummer, boolEmailMarktplaats, boolEmailMarktplaatsPartners);
+
+                // Sluiten van OracleDataReader
+                odr.Close();
                 return true;
             }
             else
             {
+                // Sluiten van OracleDataReader
+                odr.Close();
                 return false;    
             }
-
-            // Sluiten van OracleDataReader
-            odr.Close();
-
-
         }
     }
 }

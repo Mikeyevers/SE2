@@ -24,7 +24,6 @@ namespace IndividueleOpdracht
     };
     public class Product : Advertentie
     {
-        public string AdvertentieNummer { get; set; }
         public string Titel { get; set; }
         public PrijsType PrijsType { get; set; }
         public VraagprijsOptie VraagprijsOptie { get; set; }

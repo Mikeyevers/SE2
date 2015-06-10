@@ -5,16 +5,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"> 
 <form runat="server">
     <div id="container">
+        <asp:Literal ID="LoginFailureText" runat="server" Visible ="false">Inloggen mislukt. Controleer je wachtwoord en probeer het opnieuw.</asp:Literal> 
         <fieldset>
             <legend>Inloggen</legend>
             <div class="form-group">
                 <div class="col-lg-10">
-                    <asp:TextBox runat="server" type="email" class="form-control" id="inputEmail" placeholder="Email" ></asp:TextBox>
+                    <asp:TextBox runat="server" type="email" Cssclass="form-control" id="inputEmail" placeholder="Email" ></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-lg-10">                    
-                    <asp:TextBox runat="server" type="password" class="form-control" id="inputPassword" placeholder="Wachtwoord" ></asp:TextBox>
+                    <asp:TextBox runat="server" type="password" Cssclass="form-control" id="inputPassword" placeholder="Wachtwoord" ></asp:TextBox>
                 </div>
             </div>
             <div class="form-group"> 

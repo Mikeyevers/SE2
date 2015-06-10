@@ -21,7 +21,6 @@ namespace IndividueleOpdracht
     };
     public class Dienst : Advertentie
     {
-        public string AdvertentieNummer { get; set; }
         public string Naam { get; set; }
         public string Slogan { get; set; }
         public AdvertentiePakket AdvertentiePakket { get; set; }
