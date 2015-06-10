@@ -33,12 +33,14 @@ namespace IndividueleOpdracht
                 else
                 {
                     // Laat gebruiker zien dat inloggen is mislukt.
+                    LoginFailureText.Text = "<span class=\"text-warning\">Inloggen mislukt. Controleer je wachtwoord en probeer het opnieuw.</span>";
                     LoginFailureText.Visible = true;
                 }
             }
             else
             {
-                // ***Laat gebruiker zien dat de velden niet leeg mogen zijn!
+                LoginFailureText.Text = "<span class=\"text-warning\">Niet alle velden zijn ingevuld.</span>";
+                LoginFailureText.Visible = true;
             }
         }
 

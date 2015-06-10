@@ -4,8 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"> 
 <form runat="server">
-    <div id="container">
-        <asp:Literal ID="LoginFailureText" runat="server" Visible ="false">Inloggen mislukt. Controleer je wachtwoord en probeer het opnieuw.</asp:Literal> 
+    <div id="container" class="jumbotron">
         <fieldset>
             <legend>Inloggen</legend>
             <div class="form-group">
@@ -22,6 +21,9 @@
                 <div class="col-lg-10">  
                   <asp:Button ID="LoginBtn" runat="server" Text="Inloggen" CssClass="btn btn-warning" OnClick="LoginBtn_Click" />
                 </div>
+                <div class="col-lg-10">
+                     <asp:Literal ID="LoginFailureText" runat="server" Visible ="false"></asp:Literal> 
+                </div>             
             </div>
         </fieldset>
     </div>
