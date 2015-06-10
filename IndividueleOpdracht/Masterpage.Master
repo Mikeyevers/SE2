@@ -1,0 +1,22 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Masterpage.master.cs" Inherits="IndividueleOpdracht.Masterpage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>edu.Marktplaats</title>
+    <link rel="stylesheet" href="~/bootstrap/css/material.css" type="text/css" runat="server"/>
+    <script src="bootstrap/js/material.js"></script> 
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <p> test</p>
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

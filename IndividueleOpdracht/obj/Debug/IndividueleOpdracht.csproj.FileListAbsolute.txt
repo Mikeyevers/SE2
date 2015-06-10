@@ -1,0 +1,21 @@
+c:\users\user\documents\visual studio 2013\Projects\IndividueleOpdracht\IndividueleOpdracht\bin\IndividueleOpdracht.dll.config
+c:\users\user\documents\visual studio 2013\Projects\IndividueleOpdracht\IndividueleOpdracht\bin\IndividueleOpdracht.dll
+c:\users\user\documents\visual studio 2013\Projects\IndividueleOpdracht\IndividueleOpdracht\bin\IndividueleOpdracht.pdb
+c:\users\user\documents\visual studio 2013\Projects\IndividueleOpdracht\IndividueleOpdracht\bin\Oracle.ManagedDataAccess.dll
+c:\users\user\documents\visual studio 2013\Projects\IndividueleOpdracht\IndividueleOpdracht\obj\Debug\IndividueleOpdracht.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2013\Projects\IndividueleOpdracht\IndividueleOpdracht\obj\Debug\IndividueleOpdracht.dll
+c:\users\user\documents\visual studio 2013\Projects\IndividueleOpdracht\IndividueleOpdracht\obj\Debug\IndividueleOpdracht.pdb
+C:\Users\User\Documents\IndividueleOpdracht\IndividueleOpdracht\obj\Debug\IndividueleOpdracht.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\IndividueleOpdracht\IndividueleOpdracht\obj\Debug\IndividueleOpdracht.dll
+C:\Users\User\Documents\IndividueleOpdracht\IndividueleOpdracht\obj\Debug\IndividueleOpdracht.pdb
+C:\Users\User\Documents\IndividueleOpdracht\IndividueleOpdracht\bin\IndividueleOpdracht.dll.config
+C:\Users\User\Documents\IndividueleOpdracht\IndividueleOpdracht\bin\IndividueleOpdracht.dll
+C:\Users\User\Documents\IndividueleOpdracht\IndividueleOpdracht\bin\IndividueleOpdracht.pdb
+C:\Users\User\Documents\IndividueleOpdracht\IndividueleOpdracht\bin\Oracle.ManagedDataAccess.dll
+C:\Users\User\Documents\GitHub\SE2\IndividueleOpdracht\bin\IndividueleOpdracht.dll.config
+C:\Users\User\Documents\GitHub\SE2\IndividueleOpdracht\bin\IndividueleOpdracht.dll
+C:\Users\User\Documents\GitHub\SE2\IndividueleOpdracht\bin\IndividueleOpdracht.pdb
+C:\Users\User\Documents\GitHub\SE2\IndividueleOpdracht\bin\Oracle.ManagedDataAccess.dll
+C:\Users\User\Documents\GitHub\SE2\IndividueleOpdracht\obj\Debug\IndividueleOpdracht.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\SE2\IndividueleOpdracht\obj\Debug\IndividueleOpdracht.dll
+C:\Users\User\Documents\GitHub\SE2\IndividueleOpdracht\obj\Debug\IndividueleOpdracht.pdb
