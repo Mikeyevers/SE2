@@ -17,11 +17,11 @@ namespace IndividueleOpdracht
         public bool Inloggen(string emailadres, string wachtwoord) 
         {
             // Veilig ophalen van alle gegevens die horen bij het opgegeven emailadres en wachtwoord.
-            string query = "SELECT adverteerdernummer, naam, postcode, telefoonnummer, boolemailmarktplaats, boolemailpartners" +
-                           "FROM ADVERTEERDER" +
-                           "WHERE emailadres = :EMAILADRES" +
+            string query = "SELECT adverteerdernummer, naam, postcode, telefoonnummer, boolemailmarktplaats, boolemailpartners " +
+                           "FROM ADVERTEERDER " +
+                           "WHERE LOWER(emailadres) = :EMAILADRES " +
                            "AND wachtwoord = :WACHTWOORD";
-            OracleParameter emailadresParameter = new OracleParameter(":EMAILADRES", emailadres);
+            OracleParameter emailadresParameter = new OracleParameter(":EMAILADRES", emailadres.ToLower());
             OracleParameter wachtwoordParameter = new OracleParameter(":WACHTWOORD", wachtwoord);
             OracleParameter[] parameters = new OracleParameter[] { emailadresParameter, wachtwoordParameter };
 
@@ -30,7 +30,25 @@ namespace IndividueleOpdracht
             // Aanmaken van een object van type Adverteerder. 
             if (odr.Read())
             {
-                Adverteerder adverteerder = new Adverteerder(odr.GetInt32(0), emailadres, odr.GetString(1), odr.GetString(2), odr.GetString(3), odr.GetBoolean(4), odr.GetBoolean(5));
+                int adverteerderNummer = odr.GetInt32(0);
+                string naam = odr.GetString(1);
+                string postcode = odr.GetString(2);
+                string telefoonnummer = odr.GetString(3);
+                string stringEmailMarktplaats = odr.GetString(4);
+                string stringEmailMarktplaatsPartners = odr.GetString(5);
+                bool boolEmailMarktplaats = false;
+                bool boolEmailMarktplaatsPartners = false;
+                
+                if(stringEmailMarktplaats == "ja")
+                {
+                    boolEmailMarktplaats = true; 
+                }
+                if(stringEmailMarktplaatsPartners == "ja")
+                {
+                    boolEmailMarktplaatsPartners = true;
+                }
+
+                Adverteerder adverteerder = new Adverteerder(adverteerderNummer, emailadres.ToLower(), naam, postcode, telefoonnummer, boolEmailMarktplaats, boolEmailMarktplaatsPartners);
                 return true;
             }
             else

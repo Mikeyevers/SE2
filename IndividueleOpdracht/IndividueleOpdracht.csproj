@@ -60,6 +60,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="advertentieOverzicht.aspx" />
     <Content Include="bootstrap\css\material-fullpalette.css" />
     <Content Include="bootstrap\css\material-fullpalette.min.css" />
     <Content Include="bootstrap\css\material.css" />
@@ -116,6 +117,13 @@
     <Compile Include="Administration.cs" />
     <Compile Include="Adverteerder.cs" />
     <Compile Include="Advertentie.cs" />
+    <Compile Include="advertentieOverzicht.aspx.cs">
+      <DependentUpon>advertentieOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="advertentieOverzicht.aspx.designer.cs">
+      <DependentUpon>advertentieOverzicht.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Bod.cs" />
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="Dienst.cs" />
