@@ -17,7 +17,7 @@ namespace IndividueleOpdracht
         public bool Inloggen(string emailadres, string wachtwoord)
         {
             // Ophalen van adverteerderNummer bij opgegeven emailadres en wachtwoord.
-            string query = "SELECT adverteerdernummer" +
+            string query = "SELECT adverteerdernummer " +
                            "FROM ADVERTEERDER " +
                            "WHERE LOWER(emailadres) = :EMAILADRES " +
                            "AND wachtwoord = :WACHTWOORD";
