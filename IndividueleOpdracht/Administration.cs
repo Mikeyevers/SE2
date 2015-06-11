@@ -24,6 +24,7 @@ namespace IndividueleOpdracht
                            "FROM ADVERTEERDER " +
                            "WHERE LOWER(emailadres) = :EMAILADRES " +
                            "AND wachtwoord = :WACHTWOORD";
+
             OracleParameter emailadresParameter = new OracleParameter(":EMAILADRES", emailadres.ToLower());
             OracleParameter wachtwoordParameter = new OracleParameter(":WACHTWOORD", wachtwoord);
             OracleParameter[] parameters = new OracleParameter[] { emailadresParameter, wachtwoordParameter };
@@ -44,6 +45,27 @@ namespace IndividueleOpdracht
                 odr.Close();
 
                 // Indien er geen account wordt gevonden bij de opgegeven gegevens dan is het inloggen mislukt.
+                return false;
+            }
+        }
+
+        public bool checkEmailIsUnique(string emailadres)
+        {
+            // Tellen hoeveel records er voor komen in de database met het opgegeven e-mailadres.
+            // Indien het resultaat 0 is dan is het e-mailadres unique en is het valide. 
+            string query = "SELECT COUNT(*) " +
+                           "FROM ADVERTEERDER " +
+                           "WHERE LOWER(emailadres) = :EMAILADRES";
+
+            OracleParameter emailadresParameter = new OracleParameter(":EMAILADRES", emailadres.ToLower());
+            int recordCount = DatabaseConnection.ExecuteNonQuery(query, emailadresParameter);
+
+            if (recordCount == 0)
+            {
+                return true;
+            }
+            else
+            {
                 return false;
             }
         }

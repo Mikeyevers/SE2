@@ -27,5 +27,28 @@ namespace IndividueleOpdracht
         {
             Response.Redirect("Login.aspx");
         }
+
+        protected void btn_maakAccount_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                // Controleren of het e-mailadres niet al in gebruik is.
+                if(administration.checkEmailIsUnique(inputEmail.Text))
+                {
+                    RegisterFailureText.Text = "<span class=\"text-warning\">Email is uniek jonguh!.</span>";
+                    RegisterFailureText.Visible = true;
+                }
+                else
+                {
+                    RegisterFailureText.Text = "<span class=\"text-warning\">Er bestaat al een account met het ingevulde e-mailadres. Kies een ander e-mailadres.</span>";
+                    RegisterFailureText.Visible = true;
+                }
+            }
+            else
+            {
+                RegisterFailureText.Text = "<span class=\"text-warning\">Account aanmaken mislukt. Controleer je ingevulde gegevens en probeer het opnieuw.</span>";
+                RegisterFailureText.Visible = true;
+            }
+        }
     }
 }

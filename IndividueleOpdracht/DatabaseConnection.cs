@@ -52,9 +52,9 @@ namespace IndividueleOpdracht
             return ExecuteCommand(query, parameters).ExecuteNonQuery();
         }
 
-        public int ExecuteNonQuery(string query, List<OracleParameter> parameters)
+        public int ExecuteNonQuery(string query, OracleParameter parameter)
         {
-            return ExecuteNonQuery(query, parameters.ToArray());
+            return ExecuteNonQuery(query, new OracleParameter[] { parameter });
         }
 
         public OracleDataReader ExecuteQuery(string query, OracleParameter[] parameters)

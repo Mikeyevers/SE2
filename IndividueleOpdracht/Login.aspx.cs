@@ -46,6 +46,11 @@ namespace IndividueleOpdracht
                     LoginFailureText.Visible = true;
                 }
             }
+            else
+            {
+                LoginFailureText.Text = "<span class=\"text-warning\">Inloggen mislukt. Controleer je e-mailadres en wachtwoord en probeer het opnieuw.</span>";
+                LoginFailureText.Visible = true;
+            }
             
         }
 

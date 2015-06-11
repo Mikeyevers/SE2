@@ -60,10 +60,14 @@
             </div>
             <div class="form-group">
                 <div class="col-lg-10"> 
-                    <asp:Button ID="btn_maakAccount" runat="server" Text="Maak account aan" CssClass="btn btn-warning" />
+                    <asp:Button ID="btn_maakAccount" runat="server" Text="Maak account aan" CssClass="btn btn-warning" OnClick="btn_maakAccount_Click" />
                     <asp:Button ID="btn_annuleren" runat="server" Text="Annuleren" CssClass="btn btn-default" OnClick="btn_annuleren_Click" CausesValidation="false"/>
                 </div>
+                 <div class="col-lg-10">
+                     <asp:Literal ID="RegisterFailureText" runat="server" Visible ="false"></asp:Literal>                  
+                </div>     
             </div>
+
         </fieldset>
     </div>
 </asp:Content>

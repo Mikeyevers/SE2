@@ -13,12 +13,14 @@
                 </div>
             </div>
             <br />
+            <br />
             <div class="form-group">
                 <div class="col-lg-10">     
                     <asp:RequiredFieldValidator Display="Dynamic" ControlToValidate="inputPassword" runat="server" ErrorMessage="Je dient een wachtwoord in te vullen." CssClass="text-warning"></asp:RequiredFieldValidator>               
                     <asp:TextBox runat="server" type="password" Cssclass="form-control" id="inputPassword" placeholder="Wachtwoord" ></asp:TextBox>
                 </div>
             </div>
+            <br />
             <br />
             <div class="form-group"> 
                 <div class="col-lg-10">  
