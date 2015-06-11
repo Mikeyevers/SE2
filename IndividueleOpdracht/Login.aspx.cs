@@ -24,7 +24,7 @@ namespace IndividueleOpdracht
             if (administration.Inloggen(inputEmail.Text, inputPassword.Text))
             {
                 // Session aanmaken voor de ingelogde gebruiker.
-                Session["USER_EMAILADRES"] = inputEmail.Text;
+                Session["UserAuthentication"] = inputEmail.Text;
 
                 // Ik heb een methode geschreven die na het inloggen ervoor zorgt dat er naar een bepaalde pagina wordt genavigeerd.
                 // Deze pagina is flexibel en kan door de klant in Web.config worden aangepast. 

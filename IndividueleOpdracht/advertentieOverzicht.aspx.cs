@@ -13,9 +13,9 @@ namespace IndividueleOpdracht
         {
             // Er dient gecontroleerd worden of er is ingelogd.
             // Zo niet dan dient er automatisch naar de inlogpagina genavigeerd te worden.
-            if (Session["USER_EMAIL"] == null)
-            {
-                Response.Redirect("Login.aspx");
+            if (Session == null || Session["UserAuthentication"] == null)
+            {               
+                    Response.Redirect("Login.aspx");               
             }
         }
     }

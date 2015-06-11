@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"> 
-<form runat="server">
     <div id="container" class="jumbotron">
         <fieldset>
             <legend>Inloggen</legend>
@@ -29,5 +28,4 @@
             </div>
         </fieldset>
     </div>
-</form>
 </asp:Content>
