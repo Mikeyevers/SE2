@@ -11,7 +11,12 @@ namespace IndividueleOpdracht
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // Er dient gecontroleerd worden of er is ingelogd.
+            // Zo niet dan dient er automatisch naar de inlogpagina genavigeerd te worden.
+            if (Session["USER_EMAIL"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
     }
 }
