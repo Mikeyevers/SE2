@@ -22,9 +22,7 @@ namespace IndividueleOpdracht
 
         public DatabaseConnection()
         {
-            Configuration config = WebConfigurationManager.OpenWebConfiguration("\\Web.config");
-
-            connection_settings = config.AppSettings.Settings["database_connection_settings"].Value;
+            connection_settings = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
             Connection = new OracleConnection(connection_settings);
             Connection.Open();

@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Data;
 using Oracle.ManagedDataAccess.Client;
 
 namespace IndividueleOpdracht
 {
     public class Administration
     {
-        DatabaseConnection DatabaseConnection; 
+        DatabaseConnection DatabaseConnection;
+        Adverteerder LoggedInUser;
         public Administration()
         {
             DatabaseConnection = new DatabaseConnection();
@@ -48,7 +49,8 @@ namespace IndividueleOpdracht
                     boolEmailMarktplaatsPartners = true;
                 }
 
-                Adverteerder adverteerder = new Adverteerder(adverteerderNummer, emailadres.ToLower(), naam, postcode, telefoonnummer, boolEmailMarktplaats, boolEmailMarktplaatsPartners);
+                LoggedInUser = new Adverteerder(adverteerderNummer, emailadres.ToLower(), naam, postcode, telefoonnummer, boolEmailMarktplaats, boolEmailMarktplaatsPartners);             
+                 
 
                 // Sluiten van OracleDataReader
                 odr.Close();
