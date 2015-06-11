@@ -47,6 +47,11 @@ namespace IndividueleOpdracht
                 }
             }
             
+        }
+
+        protected void btn_maakAccount_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Register.aspx");
         }           
     }
 }

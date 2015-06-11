@@ -22,5 +22,10 @@ namespace IndividueleOpdracht
                 administration.NavigateAfterLogin(this.Response);
             }
         }
+
+        protected void btn_annuleren_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+        }
     }
 }

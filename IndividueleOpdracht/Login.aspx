@@ -20,7 +20,8 @@
             </div>
             <div class="form-group"> 
                 <div class="col-lg-10">  
-                  <asp:Button ID="LoginBtn" runat="server" Text="Inloggen" CssClass="btn btn-warning" OnClick="LoginBtn_Click" />
+                  <asp:Button ID="btn_inloggen" runat="server" Text="Inloggen" CssClass="btn btn-warning" OnClick="LoginBtn_Click" />
+                  <asp:Button ID="btn_maakAccount" runat="server" Text="Account aanmaken" CssClass="btn btn-default" OnClick="btn_maakAccount_Click" CausesValidation="false" />
                 </div>
                 <div class="col-lg-10">
                      <asp:Literal ID="LoginFailureText" runat="server" Visible ="false"></asp:Literal>                  
