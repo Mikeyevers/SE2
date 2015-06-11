@@ -105,6 +105,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Register.aspx" />
     <Content Include="stylesheet.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -138,6 +139,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

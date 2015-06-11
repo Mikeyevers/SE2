@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
+using System.Web;
+using System.Configuration;
+using System.Web.Configuration;
 
 namespace IndividueleOpdracht
 {
@@ -29,11 +32,10 @@ namespace IndividueleOpdracht
 
             if (odr.Read())
             {
-                // Indien de OracleDataReader uitgelezen kan worden betekent dit dat de opgegeven combinatie - emailadres en wachtwoord - bestaat.
-
                 // Sluiten van OracleDataReader
                 odr.Close();
 
+                // Indien de OracleDataReader uitgelezen kan worden betekent dit dat de opgegeven combinatie - emailadres en wachtwoord - bestaat.
                 return true;
             }
             else
@@ -42,9 +44,20 @@ namespace IndividueleOpdracht
                 odr.Close();
 
                 // Indien er geen account wordt gevonden bij de opgegeven gegevens dan is het inloggen mislukt.
-
                 return false;
             }
+        }
+
+        public void NavigateAfterLogin(HttpResponse response)
+        {
+            // Open van het Web.config bestand.
+            Configuration configuration = WebConfigurationManager.OpenWebConfiguration("\\Web.config");
+
+            // Pagina (value) ophalen die door de klant is gekoppeld aan de "pageAfterLogin" (key).
+            string pageAfterLogin = configuration.AppSettings.Settings["pageAfterLogin"].Value;
+
+            // Vervolgens navigeren naar de opgehaalde pagina.
+            response.Redirect(pageAfterLogin);
         }
     }
 }

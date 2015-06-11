@@ -9,7 +9,7 @@
             <div class="form-group">
                 <div class="col-lg-10">       
                     <asp:RequiredFieldValidator ControlToValidate="inputEmail" runat="server" ErrorMessage="Je dient een e-mailadres in te vullen." CssClass="text-warning"></asp:RequiredFieldValidator>      
-                    <asp:TextBox runat="server" type="email" Cssclass="form-control" id="inputEmail" placeholder="Email"></asp:TextBox>
+                    <asp:TextBox runat="server" type="email" Cssclass="form-control" id="inputEmail" placeholder="E-mailadres"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">

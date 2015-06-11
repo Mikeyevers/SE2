@@ -12,9 +12,9 @@ namespace IndividueleOpdracht
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
         }
 
+        
         protected void Uitloggen_Click(object sender, EventArgs e)
         {
             // Controleren of de session bestaat en indien hij bestaat wordt hij verwijderd.
