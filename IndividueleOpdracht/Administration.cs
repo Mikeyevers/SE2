@@ -53,14 +53,17 @@ namespace IndividueleOpdracht
         {
             // Tellen hoeveel records er voor komen in de database met het opgegeven e-mailadres.
             // Indien het resultaat 0 is dan is het e-mailadres unique en is het valide. 
+            string correctEmailadres = emailadres.Replace(" ", "");
+            correctEmailadres = correctEmailadres.ToLower(); 
+
             string query = "SELECT COUNT(*) " +
                            "FROM ADVERTEERDER " +
                            "WHERE LOWER(emailadres) = :EMAILADRES";
 
-            OracleParameter emailadresParameter = new OracleParameter(":EMAILADRES", emailadres.ToLower());
+            OracleParameter emailadresParameter = new OracleParameter(":EMAILADRES", correctEmailadres);
             int recordCount = DatabaseConnection.ExecuteNonQuery(query, emailadresParameter);
 
-            if (recordCount == 0)
+            if (recordCount == -1)
             {
                 return true;
             }
