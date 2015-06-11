@@ -31,10 +31,6 @@
 </head>
 <body>
 <form runat="server">
-
-    <!-- De scriptmanager heb ik nodig om pagemethods te kunnen gebruiken. -->
-    <asp:scriptmanager id="ScriptManager1" runat="server" enablepagemethods="true" />
-
     <!-- Onderstaand is de navigation bar -->
     <div class="navbar navbar-warning">
       <div class="navbar-header">
@@ -49,7 +45,7 @@
       </div>
       <div class="navbar-collapse collapse navbar-warning-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="javascript:void(0)">Advertentie plaatsen</a></li>
+          <li><a href="javascript:void(0)">Advertentie plaatsen</a></li>
           <li><a href="advertentieOverzicht.aspx">Advertenties bekijken</a></li>
           <li class="dropdown">
             <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Mijn marktplaats<b class="caret"></b></a>
@@ -63,7 +59,7 @@
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-           <asp:Button ID="btn_uitloggen" runat="server" Text="Uitloggen" CssClass="btn btn-warning" OnClick="Uitloggen_Click" />
+           <asp:Button ID="btn_uitloggen" runat="server" Text="Uitloggen" CssClass="btn btn-warning" OnClick="Uitloggen_Click" CausesValidation="false"/>
         </ul>
       </div>
     </div>
