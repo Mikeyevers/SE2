@@ -9,17 +9,14 @@ namespace IndividueleOpdracht
 {
     public partial class Register : System.Web.UI.Page
     {
-        Administration administration;
         protected void Page_Load(object sender, EventArgs e)
         {
-            administration = new Administration();
-
             // Er dient gecontroleerd worden of er is ingelogd.
             // Indien dit het geval is dan dient er naar de (door de klant) ingestelde "pageAfterLogin" (Web.config)
             // genavigeerd te worden.
             if (Session.Count != 0 || Session["UserAuthentication"] != null)
             {
-                administration.NavigateAfterLogin(this.Response);
+                Master.Administration.NavigateAfterLogin(this.Response);
             }
         }
 
@@ -33,7 +30,7 @@ namespace IndividueleOpdracht
             if (Page.IsValid)
             {
                 // Controleren of het e-mailadres niet al in gebruik is.
-                if(administration.checkEmailIsUnique(inputEmail.Text))
+                if(Master.Administration.checkEmailIsUnique(inputEmail.Text))
                 {
                     RegisterFailureText.Text = "<span class=\"text-warning\">Email is uniek jonguh!.</span>";
                     RegisterFailureText.Visible = true;

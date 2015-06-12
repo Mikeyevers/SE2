@@ -10,8 +10,10 @@ namespace IndividueleOpdracht
 {
     public partial class Masterpage : System.Web.UI.MasterPage
     {
+        public Administration Administration { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            Administration = new Administration();
         }
 
         
