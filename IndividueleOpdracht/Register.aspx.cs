@@ -27,10 +27,14 @@ namespace IndividueleOpdracht
 
         protected void btn_maakAccount_Click(object sender, EventArgs e)
         {
+
             if (Page.IsValid)
             {
+                string correctEmail = inputEmail.Text.Replace(" ", "");
+                correctEmail = correctEmail.ToLower();
+
                 // Controleren of het e-mailadres niet al in gebruik is.
-                if(Master.Administration.checkEmailIsUnique(inputEmail.Text))
+                if(Master.Administration.checkEmailIsUnique(correctEmail))
                 {
                     RegisterFailureText.Text = "<span class=\"text-warning\">Er bestaat al een account met het ingevulde e-mailadres. Kies een ander e-mailadres.</span>";
                     RegisterFailureText.Visible = true;
@@ -58,9 +62,12 @@ namespace IndividueleOpdracht
                         emailMarktplaatsPartners = false;
                     }
 
-                    bool succes = Master.Administration.createAccount(inputName.Text, inputEmail.Text, inputPassword.Text, emailMarktplaats, emailMarktplaatsPartners);
+
+                    bool succes = Master.Administration.createAccount(inputName.Text, correctEmail, inputPassword.Text, emailMarktplaats, emailMarktplaatsPartners);
                     if (succes)
                     {
+                        Master.Administration.SendActivationMail(correctEmail, inputName.Text);
+
                         inputName.Text = String.Empty;
                         inputEmail.Text = String.Empty;
                         inputPassword.Text = String.Empty;
@@ -69,7 +76,7 @@ namespace IndividueleOpdracht
                         inputEmailMarktplaatsPartner.Checked = false;
 
                         RegisterFailureText.Text = "<span class=\"text-warning\">We hebben je een bevestigingsmail gestuurd. <br /> Volg de instructies in deze mail om je account te bevestigen.</span>";
-                        RegisterFailureText.Visible = true;
+                        RegisterFailureText.Visible = true;          
                     }
                     else
                     {

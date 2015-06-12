@@ -60,6 +60,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ActivateAccount.aspx" />
     <Content Include="advertentieOverzicht.aspx" />
     <Content Include="Bootstrap\css\material-fullpalette.css" />
     <Content Include="Bootstrap\css\material-fullpalette.min.css" />
@@ -110,6 +111,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivateAccount.aspx.cs">
+      <DependentUpon>ActivateAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActivateAccount.aspx.designer.cs">
+      <DependentUpon>ActivateAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administration.cs" />
     <Compile Include="Adverteerder.cs" />
     <Compile Include="Advertentie.cs" />
