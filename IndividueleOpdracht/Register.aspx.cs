@@ -37,7 +37,45 @@ namespace IndividueleOpdracht
                 }
                 else
                 {
-                    // je mag createn...
+                    bool emailMarktplaats;
+                    bool emailMarktplaatsPartners;
+
+                    if(inputEmailMarktplaats.Checked)
+                    {
+                        emailMarktplaats = true;
+                    }
+                    else
+                    {
+                        emailMarktplaats = false;
+                    }
+
+                    if(inputEmailMarktplaatsPartner.Checked)
+                    {
+                        emailMarktplaatsPartners = true;
+                    }
+                    else
+                    {
+                        emailMarktplaatsPartners = false;
+                    }
+
+                    bool succes = Master.Administration.createAccount(inputName.Text, inputEmail.Text, inputPassword.Text, emailMarktplaats, emailMarktplaatsPartners);
+                    if (succes)
+                    {
+                        inputName.Text = String.Empty;
+                        inputEmail.Text = String.Empty;
+                        inputPassword.Text = String.Empty;
+                        inputRepeatPassword.Text = String.Empty;
+                        inputEmailMarktplaats.Checked = true;
+                        inputEmailMarktplaatsPartner.Checked = false;
+
+                        RegisterFailureText.Text = "<span class=\"text-warning\">We hebben je een bevestigingsmail gestuurd. <br /> Volg de instructies in deze mail om je account te bevestigen.</span>";
+                        RegisterFailureText.Visible = true;
+                    }
+                    else
+                    {
+                        RegisterFailureText.Text = "<span class=\"text-warning\">Account aanmaken mislukt. Controleer je ingevulde gegevens en probeer het opnieuw.</span>";
+                         RegisterFailureText.Visible = true;
+                    }
                 }
             }
             else
