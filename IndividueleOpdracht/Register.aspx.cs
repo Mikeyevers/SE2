@@ -32,13 +32,12 @@ namespace IndividueleOpdracht
                 // Controleren of het e-mailadres niet al in gebruik is.
                 if(Master.Administration.checkEmailIsUnique(inputEmail.Text))
                 {
-                    RegisterFailureText.Text = "<span class=\"text-warning\">Email is uniek jonguh!.</span>";
+                    RegisterFailureText.Text = "<span class=\"text-warning\">Er bestaat al een account met het ingevulde e-mailadres. Kies een ander e-mailadres.</span>";
                     RegisterFailureText.Visible = true;
                 }
                 else
                 {
-                    RegisterFailureText.Text = "<span class=\"text-warning\">Er bestaat al een account met het ingevulde e-mailadres. Kies een ander e-mailadres.</span>";
-                    RegisterFailureText.Visible = true;
+                    // je mag createn...
                 }
             }
             else

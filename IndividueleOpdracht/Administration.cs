@@ -56,21 +56,12 @@ namespace IndividueleOpdracht
             string correctEmailadres = emailadres.Replace(" ", "");
             correctEmailadres = correctEmailadres.ToLower(); 
 
-            string query = "SELECT COUNT(*) " +
-                           "FROM ADVERTEERDER " +
-                           "WHERE LOWER(emailadres) = :EMAILADRES";
-
+            string query = "SELECT EMAILADRES FROM ADVERTEERDER WHERE LOWER(EMAILADRES) = :EMAILADRES";
             OracleParameter emailadresParameter = new OracleParameter(":EMAILADRES", correctEmailadres);
-            int recordCount = DatabaseConnection.ExecuteNonQuery(query, emailadresParameter);
 
-            if (recordCount == -1)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            OracleDataReader odr = DatabaseConnection.ExecuteQuery(query, emailadresParameter);
+
+            return odr.Read();
         }
 
         public void NavigateAfterLogin(HttpResponse response)
