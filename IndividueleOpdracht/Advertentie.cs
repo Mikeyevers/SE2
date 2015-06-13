@@ -20,14 +20,12 @@ namespace IndividueleOpdracht
         public string Link { get; set; }
         public List<Image> Fotos { get; set; }
 
-        public Advertentie(string rubriekNummer, string advertentieTekst, string websiteUrl, string naamBijAdvertentie){
+        public Advertentie(string rubriekNummer, string advertentieTekst, string websiteUrl, string naamBijAdvertentie)
+        {
             this.RubriekNummer = rubriekNummer;
             this.AdvertentieTekst = advertentieTekst;
             this.WebsiteUrl = websiteUrl;
             this.NaamBijAdvertentie = naamBijAdvertentie;
-        }
-        {
-
         }
     }
 }

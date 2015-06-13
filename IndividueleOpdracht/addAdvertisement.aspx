@@ -61,6 +61,9 @@
                         <asp:Button ID="btn_plaatsAdvertentie" runat="server" Text="Plaats advertentie" CssClass="btn btn-warning" OnClick="btn_plaatsAdvertentie_Click" />
                         <asp:Button ID="btn_annuleren" runat="server" Text="Annuleren" CssClass="btn btn-default" OnClick="btn_annuleren_Click" CausesValidation="false" />
                     </div>  
+                    <div class="col-lg-10">
+                     <asp:Literal ID="addingFailureText" runat="server" Visible ="false"></asp:Literal>                  
+                    </div>   
                                          
         </fieldset>
     </div>

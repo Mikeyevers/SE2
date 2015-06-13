@@ -36,9 +36,10 @@ namespace IndividueleOpdracht
         public DateTime TotDatum { get; set; }
         public List<string>  specialiteiten { get; set; }
 
-        public Dienst()
+        public Dienst (string rubriekNummer, string advertentieTekst, string websiteUrl, string naamBijAdvertentie)
+                       : base(rubriekNummer, advertentieTekst, websiteUrl, naamBijAdvertentie)
         {
 
-        }
+        }  
     }
 }

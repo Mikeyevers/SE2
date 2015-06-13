@@ -105,12 +105,88 @@ namespace IndividueleOpdracht
 
         protected void btn_plaatsAdvertentie_Click(object sender, EventArgs e)
         {
-            //if(Page.IsValid)
-            //// Eerst wil ik weten wie de advertentie maakt door een Adverteerder object te maken.
-            //string email = Session["UserAuthentication"].ToString();
-            //Adverteerder user = Master.Administration.getUserByEmail(email);
+            if (Page.IsValid)
+            {
+                // Eerst wil ik weten wie de advertentie maakt door een Adverteerder object te maken.
+                string email = Session["UserAuthentication"].ToString();
+                Adverteerder user = Master.Administration.getUserByEmail(email);
+                
+                string localVraagprijs = inputVraagprijs.Text;
+                if(localVraagprijs == "")
+                {
+                   localVraagprijs = "default";
+                }
 
-            ////Daarna met er een object van product en advertentie komen, zodat we de advertentie in de database kunnen zetten.
+                string localVraagprijsOptie = RadioButtonListVraagprijs.SelectedValue;
+                if(localVraagprijsOptie == "")
+                {
+                   localVraagprijsOptie = "default";
+                }
+
+                string localBiedenVanafBedrag =  inputStartBiedenVanaf.Text;
+                if(localBiedenVanafBedrag == "")
+                {
+                   localBiedenVanafBedrag = "default";
+                }
+
+                string localPrijsbedrag = inputVraagprijs.Text;
+                if(localPrijsbedrag == "")
+                {
+                   localPrijsbedrag = "default";
+                }
+
+                string boolPaypal = "nee";
+                if(inputPaypal.Checked == true)
+                {
+                    boolPaypal = "ja";
+                }
+
+                string localWebsiteUrl = inputWebsite.Text; 
+                if(localWebsiteUrl == "")
+                {
+                    localWebsiteUrl = "default";
+                }
+
+                string localUserLand;
+                if(user.Land == null)
+                {
+                    localUserLand = "default";
+                }
+                else{
+                    localUserLand = user.Land;
+                }
+
+                string localUserWoonplaats;
+                if(user.Woonplaats == null)
+                {
+                    localUserWoonplaats = "default";
+                }
+                else{
+                    localUserWoonplaats = user.Land;
+                }
+                
+                string rubriekNummer = Master.Administration.GetRubricNumber(ListBoxRubrieken.SelectedValue);
+                // Daarna gaan we de advertentie plaatsen.
+                bool succes = user.PlaceAdvertisement(inputTitel.Text, inputPrijstype.SelectedValue, localVraagprijsOptie, localBiedenVanafBedrag, localPrijsbedrag,
+                                        boolPaypal, rubriekNummer, inputTekst.Text, localWebsiteUrl, user.Naam, localUserLand, localUserWoonplaats);
+                if (succes)
+                {
+                    addingFailureText.Text = "<span class=\"text-warning\">Je advertentie is succesvol geplaatst.</span>";
+                    addingFailureText.Visible = true;
+                }
+                else
+                {
+                    addingFailureText.Text = "<span class=\"text-warning\">Er is iets misgegaan probeer het opnieuw.</span>";
+                    addingFailureText.Visible = true;
+                }      
+            }
+            else
+            {
+                // Laat de gebruiker zien dat er niet alle data goed is ingevuld
+                addingFailureText.Text = "<span class=\"text-warning\">Advertentie toevoegen mislukt. Controleer je ingevulde gegevens en probeer het opnieuw.</span>";
+                addingFailureText.Visible = true;
+            }
+           
         }
 
         protected void btn_annuleren_Click(object sender, EventArgs e)
