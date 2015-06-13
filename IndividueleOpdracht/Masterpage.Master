@@ -45,8 +45,8 @@
       </div>
       <div class="navbar-collapse collapse navbar-warning-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="javascript:void(0)">Advertentie plaatsen</a></li>
-          <li><a href="advertentieOverzicht.aspx">Advertenties bekijken</a></li>
+          <li><a href="addAdvertisement.aspx">Advertentie plaatsen</a></li>
+          <li><a href="advertisementSummary.aspx">Advertenties bekijken</a></li>
           <li class="dropdown">
             <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Mijn marktplaats<b class="caret"></b></a>
             <ul class="dropdown-menu">
@@ -60,6 +60,9 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
            <asp:Button ID="btn_uitloggen" runat="server" Text="Uitloggen" CssClass="btn btn-warning" OnClick="Uitloggen_Click" CausesValidation="false"/>
+        </ul>
+          <ul class="nav navbar-nav navbar-right">
+           <asp:Button ID="btn_inloggen" runat="server" Text="Inloggen" CssClass="btn btn-warning" OnClick="btn_inloggen_Click" CausesValidation="false"/>
         </ul>
       </div>
     </div>

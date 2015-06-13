@@ -170,7 +170,93 @@ namespace IndividueleOpdracht
             {
                 return false; 
             }
+        }
+
+        public Adverteerder getUserByEmail(string email)
+        {
             
+            string query = "SELECT adverteerdernummer, naam, postcode, telefoonnummer, boolemailmarktplaats, boolemailpartners " +
+                           "FROM ADVERTEERDER " +
+                           "WHERE LOWER(emailadres) = :EMAILADRES";
+
+            OracleParameter emailadresParameter = new OracleParameter(":EMAILADRES", email);
+            OracleDataReader odr = DatabaseConnection.ExecuteQuery(query, emailadresParameter);      
+
+            // Aanmaken van een object van type Adverteerder. 
+            if (odr.Read())
+            {
+                int adverteerderNummer = odr.GetInt32(0);
+                string naam = odr.GetString(1);
+                string postcode = odr.GetString(2);
+                string telefoonnummer = odr.GetString(3);
+                string stringEmailMarktplaats = odr.GetString(4);
+                string stringEmailMarktplaatsPartners = odr.GetString(5);
+                bool boolEmailMarktplaats = false;
+                bool boolEmailMarktplaatsPartners = false;
+
+                if (stringEmailMarktplaats == "ja")
+                {
+                    boolEmailMarktplaats = true;
+                }
+                if (stringEmailMarktplaatsPartners == "ja")
+                {
+                    boolEmailMarktplaatsPartners = true;
+                }
+
+                Adverteerder adverteerder = new Adverteerder(adverteerderNummer, email, naam, postcode, telefoonnummer, boolEmailMarktplaats, boolEmailMarktplaatsPartners);
+                return adverteerder;
+            }
+            else
+            {
+                throw new System.ArgumentException("Er bestaat geen gebruiker met het opgegeven e-mailadres.");
+            }
+        }
+
+        public List<string>  GetMainGroups()
+        {
+            List<string> groups = new List<string>();
+
+            string query = "SELECT naam FROM groep WHERE groepnummer IN (SELECT a.groepnummera FROM groep_groep a, groep_groep b WHERE a.groepnummera <> b.groepnummerb)";
+            OracleDataReader odr = DatabaseConnection.ExecuteQuery(query);
+
+            while (odr.Read())
+            {
+                groups.Add(odr.GetString(0));
+            }
+
+            return groups;
+        }
+
+        public List<string> GetSubGroups(string mainGroup)
+        {
+            List<string> subgroups = new List<string>();
+
+            string query = "SELECT naam FROM groep WHERE groepnummer IN (SELECT groepnummerb FROM groep_groep WHERE groepnummera = (SELECT groepnummer FROM groep WHERE naam = :MAINGROUP))";
+            OracleParameter mainGroupParameter = new OracleParameter(":MAINGROUP", mainGroup);
+            OracleDataReader odr = DatabaseConnection.ExecuteQuery(query, mainGroupParameter);
+
+            while (odr.Read())
+            {
+                subgroups.Add(odr.GetString(0));
+            }
+
+            return subgroups;
+        }
+
+        public List<string> GetRubrics(string subGroup)
+        {
+            List<string> rubrics = new List<string>();
+
+            string query = "SELECT naam FROM rubriek WHERE rubrieknummer IN (SELECT rubrieknummer FROM rubriek_groep WHERE groepnummer = (SELECT groepnummer FROM groep WHERE naam = :SUBGROUP))";
+            OracleParameter subGroupParameter = new OracleParameter(":SUBGROUP", subGroup);
+            OracleDataReader odr = DatabaseConnection.ExecuteQuery(query, subGroupParameter);
+
+            while (odr.Read())
+            {
+                rubrics.Add(odr.GetString(0));
+            }
+
+            return rubrics;
         }
     }
 }

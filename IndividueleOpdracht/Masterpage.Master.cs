@@ -28,5 +28,10 @@ namespace IndividueleOpdracht
             // Na het uitloggen dient er genavigeerd te worden naar de Login pagina.
             Response.Redirect("Login.aspx");
         }
+
+        protected void btn_inloggen_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+        }
     }
 }

@@ -10,7 +10,7 @@
 namespace IndividueleOpdracht {
     
     
-    public partial class advertentieOverzicht {
+    public partial class advertisementSummary {
         
         /// <summary>
         /// Label1 control.

@@ -20,6 +20,8 @@ namespace IndividueleOpdracht
             {
                 Master.Administration.NavigateAfterLogin(this.Response);
             }
+
+            this.Form.DefaultButton = btn_inloggen.UniqueID;
         }
        
 

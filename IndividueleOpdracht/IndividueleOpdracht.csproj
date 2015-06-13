@@ -60,7 +60,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="advertentieOverzicht.aspx" />
+    <Content Include="addAdvertisement.aspx" />
+    <Content Include="advertisementSummary.aspx" />
     <Content Include="Bootstrap\css\material-fullpalette.css" />
     <Content Include="Bootstrap\css\material-fullpalette.min.css" />
     <Content Include="Bootstrap\css\material.css" />
@@ -114,15 +115,22 @@
     <Compile Include="ActivateAccount.ashx.cs">
       <DependentUpon>ActivateAccount.ashx</DependentUpon>
     </Compile>
+    <Compile Include="addAdvertisement.aspx.cs">
+      <DependentUpon>addAdvertisement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addAdvertisement.aspx.designer.cs">
+      <DependentUpon>addAdvertisement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administration.cs" />
     <Compile Include="Adverteerder.cs" />
     <Compile Include="Advertentie.cs" />
-    <Compile Include="advertentieOverzicht.aspx.cs">
-      <DependentUpon>advertentieOverzicht.aspx</DependentUpon>
+    <Compile Include="advertisementSummary.aspx.cs">
+      <DependentUpon>advertisementSummary.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="advertentieOverzicht.aspx.designer.cs">
-      <DependentUpon>advertentieOverzicht.aspx</DependentUpon>
+    <Compile Include="advertisementSummary.aspx.designer.cs">
+      <DependentUpon>advertisementSummary.aspx</DependentUpon>
     </Compile>
     <Compile Include="Bod.cs" />
     <Compile Include="DatabaseConnection.cs" />

@@ -66,5 +66,10 @@ namespace IndividueleOpdracht
         {
             return ExecuteQuery(query, new OracleParameter[] { parameter });
         }
+
+        public OracleDataReader ExecuteQuery(string query)
+        {
+            return ExecuteQuery(query, new OracleParameter[] {});
+        }
     }
 }

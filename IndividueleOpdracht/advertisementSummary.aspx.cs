@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace IndividueleOpdracht
 {
-    public partial class advertentieOverzicht : System.Web.UI.Page
+    public partial class advertisementSummary : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
