@@ -66,17 +66,26 @@ namespace IndividueleOpdracht
                     bool succes = Master.Administration.createAccount(inputName.Text, correctEmail, inputPassword.Text, emailMarktplaats, emailMarktplaatsPartners);
                     if (succes)
                     {
-                        Master.Administration.SendActivationMail(correctEmail, inputName.Text);
+                        bool emailIsSend = Master.Administration.SendActivationMail(correctEmail, inputName.Text);
 
-                        inputName.Text = String.Empty;
-                        inputEmail.Text = String.Empty;
-                        inputPassword.Text = String.Empty;
-                        inputRepeatPassword.Text = String.Empty;
-                        inputEmailMarktplaats.Checked = true;
-                        inputEmailMarktplaatsPartner.Checked = false;
+                        if (emailIsSend == false)
+                        {
+                            RegisterFailureText.Text = "<span class=\"text-warning\">De bevestigingsmail kon niet worden verstuurd. <br /> Mogelijk heb je een ongeldig e-mailadres opgegeven.</span>";
+                            RegisterFailureText.Visible = true;   
+                        }
+                        else
+                        {
+                            inputName.Text = String.Empty;
+                            inputEmail.Text = String.Empty;
+                            inputPassword.Text = String.Empty;
+                            inputRepeatPassword.Text = String.Empty;
+                            inputEmailMarktplaats.Checked = true;
+                            inputEmailMarktplaatsPartner.Checked = false;
 
-                        RegisterFailureText.Text = "<span class=\"text-warning\">We hebben je een bevestigingsmail gestuurd. <br /> Volg de instructies in deze mail om je account te bevestigen.</span>";
-                        RegisterFailureText.Visible = true;          
+                            RegisterFailureText.Text = "<span class=\"text-warning\">We hebben je een bevestigingsmail gestuurd. <br /> Volg de instructies in deze mail om je account te bevestigen.</span>";
+                            RegisterFailureText.Visible = true;     
+                        }
+                             
                     }
                     else
                     {

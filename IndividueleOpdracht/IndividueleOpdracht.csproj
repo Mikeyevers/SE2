@@ -60,7 +60,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ActivateAccount.aspx" />
     <Content Include="advertentieOverzicht.aspx" />
     <Content Include="Bootstrap\css\material-fullpalette.css" />
     <Content Include="Bootstrap\css\material-fullpalette.min.css" />
@@ -98,6 +97,7 @@
     <Content Include="Bootstrap\fonts\RobotoDraftRegular.woff" />
     <Content Include="Bootstrap\js\material.min.js.map" />
     <Content Include="Bootstrap\js\ripples.min.js.map" />
+    <Content Include="ActivateAccount.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -111,12 +111,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActivateAccount.aspx.cs">
-      <DependentUpon>ActivateAccount.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ActivateAccount.aspx.designer.cs">
-      <DependentUpon>ActivateAccount.aspx</DependentUpon>
+    <Compile Include="ActivateAccount.ashx.cs">
+      <DependentUpon>ActivateAccount.ashx</DependentUpon>
     </Compile>
     <Compile Include="Administration.cs" />
     <Compile Include="Adverteerder.cs" />
