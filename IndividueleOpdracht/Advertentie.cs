@@ -10,9 +10,7 @@ namespace IndividueleOpdracht
     {
         public string AdvertentieNummer { get; set; }
         public string RubriekNummer { get; set; }
-        public string GroepNummer { get; set; }
-        public string SubgroepNummer { get; set; }
-        public string AdvertetieTekst { get; set; }
+        public string AdvertentieTekst { get; set; }
         public string WebsiteUrl { get; set; }
         public string NaamBijAdvertentie { get; set; }
         public string TelefoonBijAdvertentie { get; set; }
@@ -21,5 +19,15 @@ namespace IndividueleOpdracht
         public DateTime PlaatsDatum { get; set; }
         public string Link { get; set; }
         public List<Image> Fotos { get; set; }
+
+        public Advertentie(string rubriekNummer, string advertentieTekst, string websiteUrl, string naamBijAdvertentie){
+            this.RubriekNummer = rubriekNummer;
+            this.AdvertentieTekst = advertentieTekst;
+            this.WebsiteUrl = websiteUrl;
+            this.NaamBijAdvertentie = naamBijAdvertentie;
+        }
+        {
+
+        }
     }
 }

@@ -76,6 +76,24 @@ namespace IndividueleOpdracht {
         protected global::System.Web.UI.WebControls.DropDownList inputPrijstype;
         
         /// <summary>
+        /// inputVraagprijsRFValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator inputVraagprijsRFValidator;
+        
+        /// <summary>
+        /// inputVraagprijsREValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator inputVraagprijsREValidator;
+        
+        /// <summary>
         /// inputVraagprijs control.
         /// </summary>
         /// <remarks>
@@ -94,6 +112,33 @@ namespace IndividueleOpdracht {
         protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonListVraagprijs;
         
         /// <summary>
+        /// RequiredFieldValidatorSBV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorSBV;
+        
+        /// <summary>
+        /// RegularExpressionValidatorSBV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorSBV;
+        
+        /// <summary>
+        /// inputStartBiedenVanaf control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputStartBiedenVanaf;
+        
+        /// <summary>
         /// inputPaypal control.
         /// </summary>
         /// <remarks>
@@ -101,6 +146,24 @@ namespace IndividueleOpdracht {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox inputPaypal;
+        
+        /// <summary>
+        /// btn_plaatsAdvertentie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_plaatsAdvertentie;
+        
+        /// <summary>
+        /// btn_annuleren control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_annuleren;
         
         /// <summary>
         /// Master property.

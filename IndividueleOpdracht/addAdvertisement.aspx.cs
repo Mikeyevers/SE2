@@ -35,16 +35,17 @@ namespace IndividueleOpdracht
                 } 
             }
 
-            // Vullen van de prijstype dropdown.        
-            inputPrijstype.Items.Add("Bieden");     
-            inputPrijstype.Items.Add("Gratis");  
-            inputPrijstype.Items.Add("Vraag prijs");   
-            inputPrijstype.Items.Add("Zie omschrijving");   
-            inputPrijstype.Items.Add("Nader overeen te komen");   
-            inputPrijstype.Items.Add("ruilen");   
-            inputPrijstype.Items.Add("Op aanvraag");   
-
-    
+            // Vullen van de prijstype dropdown.    
+            if (!IsPostBack)
+            {
+                inputPrijstype.Items.Add("Gratis");
+                inputPrijstype.Items.Add("Bieden");
+                inputPrijstype.Items.Add("Vraag prijs");
+                inputPrijstype.Items.Add("Zie omschrijving");
+                inputPrijstype.Items.Add("Nader overeen te komen");
+                inputPrijstype.Items.Add("ruilen");
+                inputPrijstype.Items.Add("Op aanvraag"); 
+            }  
         }
 
         protected void ListBoxGroepen_SelectedIndexChanged(object sender, EventArgs e)
@@ -79,6 +80,42 @@ namespace IndividueleOpdracht
                     ListBoxRubrieken.Items.Add(rubriek);
                 }
             }
+        }
+
+        protected void inputPrijstype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(inputPrijstype.SelectedValue == "Vraag prijs")
+            {
+                inputVraagprijsREValidator.Enabled = true;
+                inputVraagprijsRFValidator.Enabled = true;
+                inputVraagprijs.Visible = true;
+                RadioButtonListVraagprijs.Visible = true;    
+            }
+        }
+
+        protected void RadioButtonListVraagprijs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (RadioButtonListVraagprijs.SelectedValue == "StartBiedenVanaf")
+            {
+                inputStartBiedenVanaf.Visible = true;
+                RegularExpressionValidatorSBV.Enabled = true;
+                RequiredFieldValidatorSBV.Enabled = true;
+            }
+        }
+
+        protected void btn_plaatsAdvertentie_Click(object sender, EventArgs e)
+        {
+            //if(Page.IsValid)
+            //// Eerst wil ik weten wie de advertentie maakt door een Adverteerder object te maken.
+            //string email = Session["UserAuthentication"].ToString();
+            //Adverteerder user = Master.Administration.getUserByEmail(email);
+
+            ////Daarna met er een object van product en advertentie komen, zodat we de advertentie in de database kunnen zetten.
+        }
+
+        protected void btn_annuleren_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("advertisementSummary.aspx");
         }
     }
 }

@@ -37,5 +37,17 @@ namespace IndividueleOpdracht
         public bool DagTopper { get; set; }
         public DateTime TotDatumTopAdvertentie { get; set; }
         public DateTime TotDatumDagTopper { get; set; }
+
+        public Product(string titel, PrijsType prijsType, VraagprijsOptie vraagprijsOptie, decimal biedenVanafBedrag, decimal prijsBedrag,
+                       bool payPal, string rubriekNummer, string advertentieTekst, string websiteUrl, string naamBijAdvertentie )
+                       : base(rubriekNummer, advertentieTekst, websiteUrl, naamBijAdvertentie)
+        {
+            this.Titel = titel;
+            this.PrijsType = prijsType;
+            this.VraagprijsOptie = vraagprijsOptie;
+            this.BiedenVanafBedrag = biedenVanafBedrag;
+            this.PrijsBedrag = prijsBedrag;
+            this.PayPal = payPal;
+        }
     }
 }
