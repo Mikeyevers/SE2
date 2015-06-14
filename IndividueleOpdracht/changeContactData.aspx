@@ -9,18 +9,18 @@
         <div class="form-group">
             <div class="col-lg-10"> 
                 <asp:RequiredFieldValidator ControlToValidate="inputnaam" runat="server" ErrorMessage="Je dient je naam op te geven." Display="Dynamic" CssClass="text-warning"></asp:RequiredFieldValidator>
-                <asp:Label CssClass="strongLabel" for="inputnaam" runat="server" Text="Naam"></asp:Label>
+                <asp:Label CssClass="strongLabel"  runat="server" Text="Naam"></asp:Label>
                 <asp:TextBox ID="inputNaam" runat="server" CssClass=" form-control"></asp:TextBox>
 
                 <asp:RegularExpressionValidator ControlToValidate="inputPostcode"  runat="server" ValidationExpression="^[1-9][0-9]{3}\s?[a-zA-Z]{2}$" ErrorMessage="Je hebt geen geldige postcode opgegeven." Display="dynamic" CssClass="text-warning"></asp:RegularExpressionValidator>
-                <asp:Label CssClass="strongLabel" for="inputPostcode" runat="server" Text="Postcode"></asp:Label>
+                <asp:Label CssClass="strongLabel" runat="server" Text="Postcode"></asp:Label>
                 <asp:TextBox ID="inputPostcode" runat="server" CssClass=" form-control"></asp:TextBox>
 
                 <asp:RegularExpressionValidator ControlToValidate="inputTelefoonnummer"  runat="server" ValidationExpression="(^\+[0-9]{2}|^\+[0-9]{2}\(0\)|^\(\+[0-9]{2}\)\(0\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\-\s]{10}$)" ErrorMessage="Je hebt geen geldig telefoonnummer opgegeven." Display="dynamic" CssClass="text-warning"></asp:RegularExpressionValidator>
-                 <asp:Label CssClass="strongLabel" for="inputTelefoonnummer" runat="server" Text="Telefoonnummer"></asp:Label>
+                 <asp:Label CssClass="strongLabel" runat="server" Text="Telefoonnummer"></asp:Label>
                 <asp:TextBox ID="inputTelefoonnummer" runat="server" CssClass=" form-control"></asp:TextBox>
 
-                <asp:Label CssClass="strongLabel" for="tbemail" runat="server" Text="e-mailadres"></asp:Label>
+                <asp:Label CssClass="strongLabel" runat="server" Text="e-mailadres"></asp:Label>
                 <asp:TextBox ID="tbemail" runat="server" CssClass=" form-control" Enabled="false"></asp:TextBox>
             </div>
         </div>
