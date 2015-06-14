@@ -27,7 +27,7 @@ namespace IndividueleOpdracht
             {
                 tbemail.Text = Session["UserAuthentication"].ToString();
 
-                Adverteerder currentAdverteerder = administration.getUserByEmail(tbemail.Text);
+                Adverteerder currentAdverteerder = administration.GetUserByEmail(tbemail.Text);
                 inputNaam.Text = currentAdverteerder.Naam;
                 inputPostcode.Text = currentAdverteerder.Postcode;
                 inputTelefoonnummer.Text = currentAdverteerder.Telefoonnummer;
@@ -46,7 +46,7 @@ namespace IndividueleOpdracht
             {
                 //Object maken van current user.
                 string email = Session["UserAuthentication"].ToString();
-                Adverteerder currentAdverteerder = administration.getUserByEmail(email);
+                Adverteerder currentAdverteerder = administration.GetUserByEmail(email);
 
                 string name = inputNaam.Text.Trim();
                 string zipCode = inputPostcode.Text.Replace(" ", "");
@@ -63,7 +63,7 @@ namespace IndividueleOpdracht
                 }
 
                 //Updaten en op de hoogte brengen van de gebruiker.
-                bool succes = currentAdverteerder.changeContactDate(name, zipCode, phoneNumber, emailMarktplaats, emailMarktplaatsPartners);
+                bool succes = currentAdverteerder.ChangeContactDate(name, zipCode, phoneNumber, emailMarktplaats, emailMarktplaatsPartners);
 
                 if (succes)
                 {

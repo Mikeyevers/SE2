@@ -34,7 +34,7 @@ namespace IndividueleOpdracht
                 correctEmail = correctEmail.ToLower();
 
                 // Controleren of het e-mailadres niet al in gebruik is.
-                if(Master.Administration.checkEmailIsUnique(correctEmail))
+                if(Master.Administration.CheckEmailIsUnique(correctEmail))
                 {
                     RegisterFailureText.Text = "<span class=\"text-warning\">Er bestaat al een account met het ingevulde e-mailadres. Kies een ander e-mailadres.</span>";
                     RegisterFailureText.Visible = true;
@@ -63,7 +63,7 @@ namespace IndividueleOpdracht
                     }
 
 
-                    bool succes = Master.Administration.createAccount(inputName.Text, correctEmail, inputPassword.Text, emailMarktplaats, emailMarktplaatsPartners);
+                    bool succes = Master.Administration.CreateAccount(inputName.Text, correctEmail, inputPassword.Text, emailMarktplaats, emailMarktplaatsPartners);
                     if (succes)
                     {
                         bool emailIsSend = Master.Administration.SendActivationMail(correctEmail, inputName.Text);

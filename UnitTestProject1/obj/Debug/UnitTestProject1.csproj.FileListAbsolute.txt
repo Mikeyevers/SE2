@@ -1,0 +1,8 @@
+C:\Users\User\Documents\GitHub\SE2\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+C:\Users\User\Documents\GitHub\SE2\UnitTestProject1\bin\Debug\UnitTestProject1.pdb
+C:\Users\User\Documents\GitHub\SE2\UnitTestProject1\bin\Debug\IndividueleOpdracht.dll
+C:\Users\User\Documents\GitHub\SE2\UnitTestProject1\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\User\Documents\GitHub\SE2\UnitTestProject1\bin\Debug\IndividueleOpdracht.pdb
+C:\Users\User\Documents\GitHub\SE2\UnitTestProject1\obj\Debug\UnitTestProject1.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\SE2\UnitTestProject1\obj\Debug\UnitTestProject1.dll
+C:\Users\User\Documents\GitHub\SE2\UnitTestProject1\obj\Debug\UnitTestProject1.pdb

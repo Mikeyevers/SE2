@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>c3fba89b-8a8b-4b1b-821f-6ba7057353ef</ProjectGuid>
+    <ProjectGuid>{228368C3-2FA2-4667-99A5-94A9B0C92346}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnitTestProject1</RootNamespace>
+    <RootNamespace>IndividueleOpdracht</RootNamespace>
     <AssemblyName>UnitTestProject1</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -50,8 +50,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTestSendMail.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IndividueleOpdracht\IndividueleOpdracht.csproj">
+      <Project>{e4ff20c6-5b51-40a3-93c2-2139124c1fb2}</Project>
+      <Name>IndividueleOpdracht</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

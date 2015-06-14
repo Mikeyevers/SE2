@@ -112,7 +112,7 @@ namespace IndividueleOpdracht
             {
                 // Eerst wil ik weten wie de advertentie maakt door een Adverteerder object te maken.
                 string email = Session["UserAuthentication"].ToString();
-                Adverteerder user = Master.Administration.getUserByEmail(email);
+                Adverteerder user = Master.Administration.GetUserByEmail(email);
                 
                 string localVraagprijs = inputVraagprijs.Text;
                 if(localVraagprijs == "")

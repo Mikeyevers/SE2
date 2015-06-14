@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Web;
@@ -52,7 +50,7 @@ namespace IndividueleOpdracht
             }
         }
 
-        public bool checkEmailIsUnique(string email)
+        public bool CheckEmailIsUnique(string email)
         {
             // Tellen hoeveel records er voor komen in de database met het opgegeven e-mailadres.
             // Indien het resultaat 0 is dan is het e-mailadres unique en is het valide. 
@@ -65,7 +63,7 @@ namespace IndividueleOpdracht
             return odr.Read();
         }
 
-        public bool createAccount(string name, string email, string password, bool emailMarktplaats, bool emailMarktplaatsPartners)
+        public bool CreateAccount(string name, string email, string password, bool emailMarktplaats, bool emailMarktplaatsPartners)
         {
             string emailMarktplaatsString;
             string emailMarktplaatsPartnersString;
@@ -153,9 +151,9 @@ namespace IndividueleOpdracht
                     smtp.Host = "smtp.live.com";
                     smtp.EnableSsl = true;
                     // I.v.m. de tijdsdruk heb ik de credentials niet voorzien van encryptie in de web.config, in praktijk gebeurt dit natuurlijk wel.
-                    NetworkCredential NetworkCredential = new NetworkCredential("marktplaats_software@hotmail.com", "SoftwareOpdracht");
+                    NetworkCredential networkCredential = new NetworkCredential("marktplaats_software@hotmail.com", "SoftwareOpdracht");
                     smtp.UseDefaultCredentials = false;
-                    smtp.Credentials = NetworkCredential;
+                    smtp.Credentials = networkCredential;
                     smtp.Port = 587;
                     smtp.Send(mailMessage);
 
@@ -172,7 +170,7 @@ namespace IndividueleOpdracht
             }
         }
 
-        public Adverteerder getUserByEmail(string email)
+        public Adverteerder GetUserByEmail(string email)
         {
 
             string query = "SELECT adverteerdernummer, naam, postcode, telefoonnummer, boolemailmarktplaats, boolemailpartners " +

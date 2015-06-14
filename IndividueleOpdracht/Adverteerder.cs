@@ -79,7 +79,7 @@ namespace IndividueleOpdracht
             }
         }
 
-        public bool changeContactDate(string name, string zipCode, string phoneNumber, string emailMarktplaats, string emailMarktplaatsPartners)
+        public bool ChangeContactDate(string name, string zipCode, string phoneNumber, string emailMarktplaats, string emailMarktplaatsPartners)
         {
             string query = "UPDATE ADVERTEERDER " +
                            "SET naam = :NAME, " +
