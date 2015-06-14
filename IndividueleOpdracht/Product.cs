@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,8 @@ namespace IndividueleOpdracht
 
     public class Product : Advertentie
     {
+        Administration administration = new Administration();
+
         public string Titel { get; set; }
         public string PrijsType { get; set; }
         public string VraagprijsOptie { get; set; }
@@ -45,5 +48,20 @@ namespace IndividueleOpdracht
             this.PrijsBedrag = -999m;
             this.PayPal = payPal;
         }
+
+        public string getRubricNameByNumber(int number)
+        {
+            string query = "SELECT naam FROM rubriek WHERE rubrieknummer = :RUBRICNUMBER";
+            OracleParameter numberParameter = new OracleParameter(":RUBRICNUMBER", number);
+            OracleDataReader odr = administration.DatabaseConnection.ExecuteQuery(query, numberParameter);
+
+            string name = "";
+            if (odr.Read())
+            {
+                name = odr.GetString(0);
+            }
+            return name;
+        }
+      
     }
 }

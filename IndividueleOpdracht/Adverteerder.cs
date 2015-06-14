@@ -44,7 +44,7 @@ namespace IndividueleOpdracht
             OracleParameter postcodeParameter = new OracleParameter("POSTCODE", postcode);
             OracleParameter[] parameters1 = new OracleParameter[] {rubriekNummerParameter, adverteerderNummerParameter,
                                                                    advertentieTekstParameter, websiteUrlParameter,
-                                                                   naamBijAdvertentieParameter, postcodeParameter};
+                                                                   naamBijAdvertentieParameter, telefoonParameter, postcodeParameter};
 
             int rowCount1 = administration.DatabaseConnection.ExecuteNonQuery(query1, parameters1);
 

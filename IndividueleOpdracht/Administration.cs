@@ -281,7 +281,8 @@ namespace IndividueleOpdracht
             string query = "SELECT a.rubriekNummer, a.adverteerderNummer, a.advertentieTekst, a.websiteUrl, a.naamBijAdvertentie, a.telefoonBijAdvertentie, a.postcode, a.plaatsdatum, " +
                             "       p.titel, p.prijsType, p.vraagPrijsOptie, p.biedenVanafBedrag, p.prijsBedrag, p.boolPaypal, p.land, p.woonplaats " +
                             "FROM advertentie a, product p " +
-                            "WHERE a.advertentieNummer = p.advertentieNummer";
+                            "WHERE a.advertentieNummer = p.advertentieNummer " +
+                            "ORDER BY plaatsDatum DESC";
 
             OracleDataReader odr = DatabaseConnection.ExecuteQuery(query);
             List<Product> producten = new List<Product>();
@@ -292,6 +293,11 @@ namespace IndividueleOpdracht
                 int rubriekNummer = odr.GetInt32(0);
                 int adverteerderNummer = odr.GetInt32(1);
                 string advertentieTekst = odr.GetString(2);
+                string naam = odr.GetString(4);
+                DateTime plaatsDatum = odr.GetDateTime(7);
+                string titel = odr.GetString(8);
+                string prijsType = odr.GetString(9);
+
                 string websiteUrl;
                 if(odr.IsDBNull(3))
                 {
@@ -301,7 +307,7 @@ namespace IndividueleOpdracht
                 {
                     websiteUrl = odr.GetString(3);
                 }
-                string naam = odr.GetString(4);
+  
                 int telefoon;
                 if (odr.IsDBNull(5))
                 {
@@ -312,6 +318,7 @@ namespace IndividueleOpdracht
                 {
                     telefoon = odr.GetInt32(5);
                 }
+
                 string postcode;
                 if (odr.IsDBNull(6))
                 {
@@ -321,9 +328,7 @@ namespace IndividueleOpdracht
                 {
                     postcode = odr.GetString(6);
                 }
-                DateTime plaatsDatum = odr.GetDateTime(7);
-                string titel = odr.GetString(8);
-                string prijsType = odr.GetString(9);
+                
                 string vraagPrijsOptie;
                 if (odr.IsDBNull(10))
                 {
@@ -333,6 +338,7 @@ namespace IndividueleOpdracht
                 {
                     vraagPrijsOptie = odr.GetString(10);
                 }
+
                 decimal biedenVanafBedrag;
                 if (odr.IsDBNull(11))
                 {
@@ -343,6 +349,7 @@ namespace IndividueleOpdracht
                 {
                     biedenVanafBedrag = odr.GetDecimal(11);
                 }
+
                 decimal prijsBedrag;
                 if (odr.IsDBNull(12))
                 {
@@ -353,7 +360,13 @@ namespace IndividueleOpdracht
                 {
                     prijsBedrag = odr.GetDecimal(12);
                 }
-                bool payPal = odr.GetBoolean(13);
+                string payPalString = odr.GetString(13);
+                bool payPal = false;
+                if (payPalString.Trim() == "ja")
+                {
+                    payPal = true;
+                }     
+         
                 string land;
                 if (odr.IsDBNull(14))
                 {

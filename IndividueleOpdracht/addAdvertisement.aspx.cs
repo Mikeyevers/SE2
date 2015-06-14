@@ -98,7 +98,7 @@ namespace IndividueleOpdracht
 
         protected void RadioButtonListVraagprijs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (RadioButtonListVraagprijs.SelectedValue == "StartBiedenVanaf")
+            if (RadioButtonListVraagprijs.SelectedValue == "start bieden vanaf")
             {
                 inputStartBiedenVanaf.Visible = true;
                 RegularExpressionValidatorSBV.Enabled = true;
@@ -139,7 +139,7 @@ namespace IndividueleOpdracht
                 }
 
                 string boolPaypal = "nee";
-                if(inputPaypal.Checked == true)
+                if(inputPaypal.Checked)
                 {
                     boolPaypal = "ja";
                 }
