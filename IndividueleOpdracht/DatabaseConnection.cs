@@ -1,15 +1,11 @@
-﻿using System.Web;
-using Oracle.ManagedDataAccess.Client;
+﻿using Oracle.ManagedDataAccess.Client;
 using System.Configuration;
-using System.Web.Configuration;
-using System.Collections.Generic;
+
 
 namespace IndividueleOpdracht
 {
     public sealed class DatabaseConnection
     {
-        // Deze class gemaakt samen met Teun Willems ©.
-
         private string connection_settings;
 
         public OracleConnection Connection
