@@ -1,19 +1,17 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿//using System;
+//using System.Text;
+//using System.Collections.Generic;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace IndividueleOpdracht
-{
-    /// <summary>
-    /// Testen van het login systeem.
-    /// </summary>
-    [TestClass]
-    public class UnitTestLogin
-    {
+//namespace IndividueleOpdracht
+//{
+//    /// <summary>
+//    /// Testen van het login systeem.
+//    /// </summary>
+//    [TestClass]
+//    public class UnitTestLogin
+//    {
       
-        private TestContext testContextInstance;
-
         /// <summary>
         ///Gets or sets the test context which provides
         ///information about and functionality for the current test run.
