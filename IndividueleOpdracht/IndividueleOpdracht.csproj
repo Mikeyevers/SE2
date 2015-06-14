@@ -61,6 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="addAdvertisement.aspx" />
+    <Content Include="advertentieUserControl.ascx">
+      <BrowseToURL>~/advertentieUserControl.ascx</BrowseToURL>
+    </Content>
     <Content Include="advertisementSummary.aspx" />
     <Content Include="Bootstrap\css\material-fullpalette.css" />
     <Content Include="Bootstrap\css\material-fullpalette.min.css" />
@@ -123,6 +126,13 @@
       <DependentUpon>addAdvertisement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administration.cs" />
+    <Compile Include="advertentieUserControl.ascx.cs">
+      <DependentUpon>advertentieUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="advertentieUserControl.ascx.designer.cs">
+      <DependentUpon>advertentieUserControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Adverteerder.cs" />
     <Compile Include="Advertentie.cs" />
     <Compile Include="advertisementSummary.aspx.cs">
@@ -134,7 +144,6 @@
     </Compile>
     <Compile Include="Bod.cs" />
     <Compile Include="DatabaseConnection.cs" />
-    <Compile Include="Dienst.cs" />
     <Compile Include="Kenmerk.cs" />
     <Compile Include="Masterpage.Master.cs">
       <DependentUpon>Masterpage.Master</DependentUpon>

@@ -31,15 +31,16 @@ namespace IndividueleOpdracht
         }
 
         public bool PlaceAdvertisement(string titel, string selectedPrijstype, string selectedVraagprijsOptie, string biedenVanafBedrag, string prijsBedrag, 
-                                       string payPal, int rubriekNummer, string advertentieTekst, string websiteUrl, string naamBijAdvertentie, int adverteerderNummer, string postcode, string land, string woonplaats)
+                                       string payPal, int rubriekNummer, string advertentieTekst, string websiteUrl, string naamBijAdvertentie, string telefoon, int adverteerderNummer, string postcode, string land, string woonplaats)
         {
             // Eerst een advertentie nummer ophalen.
-            string query1 = "INSERT INTO advertentie VALUES(ADVERTENTIENUMMER_SEQ.nextval, :RUBRIEKNUMMER, :ADVERTEERDERNUMMER, :ADVERTENTIETEKST, :WEBSITEURL, :NAAMBIJADVERTENTIE, null, :POSTCODE, null, null, default, sysdate, null)";
+            string query1 = "INSERT INTO advertentie VALUES(ADVERTENTIENUMMER_SEQ.nextval, :RUBRIEKNUMMER, :ADVERTEERDERNUMMER, :ADVERTENTIETEKST, :WEBSITEURL, :NAAMBIJADVERTENTIE, :TELEFOON, :POSTCODE, null, null, default, sysdate, null)";
             OracleParameter rubriekNummerParameter = new OracleParameter(":RUBRIEKNUMMER", rubriekNummer);
             OracleParameter adverteerderNummerParameter = new OracleParameter(":ADVERTEERDERNUMMER", adverteerderNummer);
             OracleParameter advertentieTekstParameter = new OracleParameter(":ADVERTENTIETEKST", advertentieTekst);
             OracleParameter websiteUrlParameter = new OracleParameter("WEBSITEURL", websiteUrl);
             OracleParameter naamBijAdvertentieParameter = new OracleParameter(":NAAMBIJADVERTENTIE", naamBijAdvertentie);
+            OracleParameter telefoonParameter = new OracleParameter(":TELEFOON", telefoon);
             OracleParameter postcodeParameter = new OracleParameter("POSTCODE", postcode);
             OracleParameter[] parameters1 = new OracleParameter[] {rubriekNummerParameter, adverteerderNummerParameter,
                                                                    advertentieTekstParameter, websiteUrlParameter,
@@ -76,7 +77,6 @@ namespace IndividueleOpdracht
             {
                 return true;
             }
-
         }
     }
 }

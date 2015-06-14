@@ -164,7 +164,7 @@ namespace IndividueleOpdracht
                 
                 // Daarna gaan we de advertentie plaatsen.
                 bool succes = user.PlaceAdvertisement(inputTitel.Text, inputPrijstype.SelectedValue.ToLower(), localVraagprijsOptie, localBiedenVanafBedrag, localPrijsbedrag,
-                                        boolPaypal, rubriekNummer, txtWithSpaces, localWebsiteUrl, user.Naam, user.AdverteerderNummer, user.Postcode, null, null);
+                                        boolPaypal, rubriekNummer, txtWithSpaces, localWebsiteUrl, user.Naam, user.Telefoonnummer, user.AdverteerderNummer, user.Postcode, null, null);
                 if (succes)
                 {
                     Response.Redirect("advertisementSummary.aspx");
