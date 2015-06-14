@@ -78,6 +78,7 @@
     <Content Include="Bootstrap\js\material.min.js" />
     <Content Include="Bootstrap\js\ripples.js" />
     <Content Include="Bootstrap\js\ripples.min.js" />
+    <Content Include="changeContactData.aspx" />
     <Content Include="packages.config" />
     <Content Include="Masterpage.Master" />
     <Content Include="Login.aspx" />
@@ -144,6 +145,13 @@
     </Compile>
     <Compile Include="Bod.cs" />
     <Compile Include="DatabaseConnection.cs" />
+    <Compile Include="changeContactData.aspx.cs">
+      <DependentUpon>changeContactData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="changeContactData.aspx.designer.cs">
+      <DependentUpon>changeContactData.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Kenmerk.cs" />
     <Compile Include="Masterpage.Master.cs">
       <DependentUpon>Masterpage.Master</DependentUpon>

@@ -78,5 +78,34 @@ namespace IndividueleOpdracht
                 return true;
             }
         }
+
+        public bool changeContactDate(string name, string zipCode, string phoneNumber, string emailMarktplaats, string emailMarktplaatsPartners)
+        {
+            string query = "UPDATE ADVERTEERDER " +
+                           "SET naam = :NAME, " +
+                           "    postcode = :ZIPCODE, " +
+                           "    telefoonnummer = :PHONENUMBER, " +
+                           "    boolemailmarktplaats = :EMARKTPLAATS, " +
+                           "    boolemailpartners = :EPARTNERS " +
+                           "WHERE emailadres = '" + this.Emailadres + "'";
+            OracleParameter nameParameter = new OracleParameter(":NAME", name);
+            OracleParameter zipCodeParameter = new OracleParameter(":ZIPCODE", zipCode);
+            OracleParameter phoneNumberParameter = new OracleParameter(":PHONENUMBER", phoneNumber);
+            OracleParameter emailMarktplaatsParameter = new OracleParameter(":EMARKTPLAATS", emailMarktplaats);
+            OracleParameter emailMarktplaatsPartnersParameter = new OracleParameter(":EPARTNERS", emailMarktplaatsPartners);
+            OracleParameter[] parameters = new OracleParameter[] { nameParameter, zipCodeParameter, phoneNumberParameter,
+                                                                   emailMarktplaatsParameter, emailMarktplaatsPartnersParameter};
+
+            int rowCount = administration.DatabaseConnection.ExecuteNonQuery(query, parameters);
+
+            if (rowCount != -1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

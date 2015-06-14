@@ -54,7 +54,7 @@
               <li><a href="javascript:void(0)">Bewaarde advertenties</a></li>
               <li><a href="javascript:void(0)">Favorieten adverteerders</a></li>
              <li class="divider"></li>
-              <li><a href="javascript:void(0)">Gegevens aanpassen</a></li>
+              <li><a href="changeContactData.aspx">Gegevens aanpassen</a></li>
             </ul>
           </li>
         </ul>

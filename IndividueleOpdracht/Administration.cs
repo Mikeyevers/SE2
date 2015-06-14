@@ -194,11 +194,11 @@ namespace IndividueleOpdracht
                 bool boolEmailMarktplaats = false;
                 bool boolEmailMarktplaatsPartners = false;
 
-                if (stringEmailMarktplaats == "ja")
+                if (stringEmailMarktplaats.Trim() == "ja")
                 {
                     boolEmailMarktplaats = true;
                 }
-                if (stringEmailMarktplaatsPartners == "ja")
+                if (stringEmailMarktplaatsPartners.Trim() == "ja")
                 {
                     boolEmailMarktplaatsPartners = true;
                 }
