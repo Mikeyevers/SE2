@@ -23,7 +23,7 @@
                     <asp:RequiredFieldValidator runat="server" ErrorMessage="Je dient een advertentie tekst in te vullen." ControlToValidate="inputTekst" CssClass="text-warning" Display="Dynamic"></asp:RequiredFieldValidator>
                     <div class="form-group">
                         <label class="control-label" for="inputTekst">Schrijf een advertentie tekst</label>
-                        <asp:TextBox id="inputTekst" placeholder="verplicht" TextMode="multiline" Columns="50" Rows="5" runat="server" CssClass=" form-control"/>
+                        <asp:TextBox id="inputTekst" placeholder="verplicht" MaxLength="2000"  TextMode ="multiline" Columns="50" Rows="5" runat="server" CssClass=" form-control"/>
                     </div> 
             
                     <div class="form-group">    
@@ -38,16 +38,16 @@
                        
                         
                         <asp:RequiredFieldValidator id="inputVraagprijsRFValidator" runat="server" ErrorMessage="Je dient een vraagprijs in te vullen." Enabled="false" ControlToValidate="inputVraagprijs" CssClass="text-warning" Display="Dynamic"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="inputVraagprijsREValidator" runat="server" ControlToValidate="inputVraagprijs" Enabled="false" ValidationExpression="^\d{0,8}(\.\d{1,4})?$"  ErrorMessage="Je hebt een ongeldig bedrag opgegeven." CssClass="text-warning" Display="Dynamic"></asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="inputVraagprijsREValidator" runat="server" ControlToValidate="inputVraagprijs" Enabled="false" ValidationExpression="^[0-9]{1,6}([,.][0-9]{1,2})?$"  ErrorMessage="Je hebt een ongeldig bedrag opgegeven." CssClass="text-warning" Display="Dynamic"></asp:RegularExpressionValidator>
                         <asp:TextBox ID="inputVraagprijs" runat="server" CssClass="form-control" Visible="false" placeholder="0,00"></asp:TextBox>
                         <br />
                         <asp:RadioButtonList ID="RadioButtonListVraagprijs" runat="server" Visible="false" OnSelectedIndexChanged="RadioButtonListVraagprijs_SelectedIndexChanged" AutoPostBack="true">
-                            <asp:ListItem value="VastePrijs">Vaste prijs</asp:ListItem>
-                            <asp:ListItem value="VrijBiedenToegestaan">Vrij bieden toegestaan</asp:ListItem>
-                            <asp:ListItem value="StartBiedenVanaf">Start bieden vanaf:</asp:ListItem>
+                            <asp:ListItem value="vaste prijs">Vaste prijs</asp:ListItem>
+                            <asp:ListItem value="vrij bieden toegestaan">Vrij bieden toegestaan</asp:ListItem>
+                            <asp:ListItem value="start bieden vanaf">Start bieden vanaf:</asp:ListItem>
                         </asp:RadioButtonList>
                         <asp:RequiredFieldValidator id="RequiredFieldValidatorSBV" runat="server" ControlToValidate="inputStartBiedenVanaf" ErrorMessage ="Je dient een bieden-vanaf-prijs in te vullen." Enabled="false"  CssClass="text-warning" Display="Dynamic"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorSBV" runat="server" ControlToValidate="inputStartBiedenVanaf" Enabled="false" ValidationExpression="^\d{0,8}(\.\d{1,4})?$"  ErrorMessage="Je hebt een ongeldig bedrag opgegeven." CssClass="text-warning" Display="Dynamic"></asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorSBV" runat="server" ControlToValidate="inputStartBiedenVanaf" Enabled="false" ValidationExpression="^[0-9]{1,6}([,.][0-9]{1,2})?$"  ErrorMessage="Je hebt een ongeldig bedrag opgegeven." CssClass="text-warning" Display="Dynamic"></asp:RegularExpressionValidator>
                         <asp:TextBox ID="inputStartBiedenVanaf" runat="server" CssClass="form-control" Visible="false" placeholder ="0,00"></asp:TextBox>
                     
 

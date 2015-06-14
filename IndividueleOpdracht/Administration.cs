@@ -13,7 +13,7 @@ namespace IndividueleOpdracht
 {
     public class Administration
     {
-        DatabaseConnection DatabaseConnection;
+        public DatabaseConnection DatabaseConnection;
         public Administration()
         {
             DatabaseConnection = new DatabaseConnection();
@@ -70,7 +70,7 @@ namespace IndividueleOpdracht
             string emailMarktplaatsString;
             string emailMarktplaatsPartnersString;
 
-            if(emailMarktplaats)
+            if (emailMarktplaats)
             {
                 emailMarktplaatsString = "ja";
             }
@@ -79,7 +79,7 @@ namespace IndividueleOpdracht
                 emailMarktplaatsString = "nee";
             }
 
-            if(emailMarktplaatsPartners)
+            if (emailMarktplaatsPartners)
             {
                 emailMarktplaatsPartnersString = "ja";
             }
@@ -88,13 +88,13 @@ namespace IndividueleOpdracht
                 emailMarktplaatsPartnersString = "nee";
             }
 
-            string query = "INSERT INTO adverteerder VALUES (adverteerderNummer_SEQ.nextval, :EMAIL, :PASSWORD, :NAME, default, default, '" 
+            string query = "INSERT INTO adverteerder VALUES (adverteerderNummer_SEQ.nextval, :EMAIL, :PASSWORD, :NAME, default, default, '"
                             + emailMarktplaatsString + "', '" + emailMarktplaatsPartnersString + "', default, default)";
 
             OracleParameter emailParameter = new OracleParameter(":EMAIL", email);
             OracleParameter passwordParameter = new OracleParameter(":PASSWORD", password);
             OracleParameter nameParameter = new OracleParameter(":NAME", name);
-            OracleParameter[] parameters = new OracleParameter[] { emailParameter, passwordParameter, nameParameter};
+            OracleParameter[] parameters = new OracleParameter[] { emailParameter, passwordParameter, nameParameter };
 
             int countRows = DatabaseConnection.ExecuteNonQuery(query, parameters);
 
@@ -168,19 +168,19 @@ namespace IndividueleOpdracht
             }
             catch
             {
-                return false; 
+                return false;
             }
         }
 
         public Adverteerder getUserByEmail(string email)
         {
-            
+
             string query = "SELECT adverteerdernummer, naam, postcode, telefoonnummer, boolemailmarktplaats, boolemailpartners " +
                            "FROM ADVERTEERDER " +
                            "WHERE LOWER(emailadres) = :EMAILADRES";
 
             OracleParameter emailadresParameter = new OracleParameter(":EMAILADRES", email);
-            OracleDataReader odr = DatabaseConnection.ExecuteQuery(query, emailadresParameter);      
+            OracleDataReader odr = DatabaseConnection.ExecuteQuery(query, emailadresParameter);
 
             // Aanmaken van een object van type Adverteerder. 
             if (odr.Read())
@@ -212,7 +212,7 @@ namespace IndividueleOpdracht
             }
         }
 
-        public List<string>  GetMainGroups()
+        public List<string> GetMainGroups()
         {
             List<string> groups = new List<string>();
 
@@ -257,6 +257,23 @@ namespace IndividueleOpdracht
             }
 
             return rubrics;
+        }
+
+        public int GetRubricNumber(string rubricName)
+        {
+            string query = "SELECT rubrieknummer FROM rubriek WHERE naam = :RUBRICNAME";
+            OracleParameter rubricNameParameter = new OracleParameter(":RUBRICNAME", rubricName);
+
+            OracleDataReader odr = DatabaseConnection.ExecuteQuery(query, rubricNameParameter);
+
+
+            if (odr.Read())
+            {
+                int number = odr.GetInt32(0);
+
+                return number;
+            }
+            else return -9999;
         }
     }
 }

@@ -21,6 +21,7 @@ namespace IndividueleOpdracht
                 Master.Administration.NavigateAfterLogin(this.Response);
             }
 
+            // Enter key instellen.
             this.Form.DefaultButton = btn_inloggen.UniqueID;
         }
        

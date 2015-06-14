@@ -46,6 +46,9 @@ namespace IndividueleOpdracht
                 inputPrijstype.Items.Add("ruilen");
                 inputPrijstype.Items.Add("Op aanvraag"); 
             }  
+
+            // Enter key instellen.
+            this.Form.DefaultButton = btn_plaatsAdvertentie.UniqueID;
         }
 
         protected void ListBoxGroepen_SelectedIndexChanged(object sender, EventArgs e)
@@ -114,25 +117,25 @@ namespace IndividueleOpdracht
                 string localVraagprijs = inputVraagprijs.Text;
                 if(localVraagprijs == "")
                 {
-                   localVraagprijs = "default";
+                    localVraagprijs = null;
                 }
 
                 string localVraagprijsOptie = RadioButtonListVraagprijs.SelectedValue;
                 if(localVraagprijsOptie == "")
                 {
-                   localVraagprijsOptie = "default";
+                    localVraagprijsOptie = null;
                 }
 
                 string localBiedenVanafBedrag =  inputStartBiedenVanaf.Text;
                 if(localBiedenVanafBedrag == "")
                 {
-                   localBiedenVanafBedrag = "default";
+                    localBiedenVanafBedrag = null;
                 }
 
                 string localPrijsbedrag = inputVraagprijs.Text;
                 if(localPrijsbedrag == "")
                 {
-                   localPrijsbedrag = "default";
+                    localPrijsbedrag = null;
                 }
 
                 string boolPaypal = "nee";
@@ -141,38 +144,30 @@ namespace IndividueleOpdracht
                     boolPaypal = "ja";
                 }
 
-                string localWebsiteUrl = inputWebsite.Text; 
+                string localWebsiteUrl = inputWebsite.Text.ToLower(); 
                 if(localWebsiteUrl == "")
                 {
-                    localWebsiteUrl = "default";
+                    localWebsiteUrl = null;
                 }
 
-                string localUserLand;
-                if(user.Land == null)
-                {
-                    localUserLand = "default";
-                }
-                else{
-                    localUserLand = user.Land;
-                }
+                
+                
+                int rubriekNummer = Master.Administration.GetRubricNumber(ListBoxRubrieken.SelectedValue);
+                string txt = inputTekst.Text;
+                string[] lines = txt.Split(new Char[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
-                string localUserWoonplaats;
-                if(user.Woonplaats == null)
+                string txtWithSpaces = "";
+                for (int i = 0; i < lines.Length; i++)
                 {
-                    localUserWoonplaats = "default";
-                }
-                else{
-                    localUserWoonplaats = user.Land;
+                    txtWithSpaces += lines[i] + " ";
                 }
                 
-                string rubriekNummer = Master.Administration.GetRubricNumber(ListBoxRubrieken.SelectedValue);
                 // Daarna gaan we de advertentie plaatsen.
-                bool succes = user.PlaceAdvertisement(inputTitel.Text, inputPrijstype.SelectedValue, localVraagprijsOptie, localBiedenVanafBedrag, localPrijsbedrag,
-                                        boolPaypal, rubriekNummer, inputTekst.Text, localWebsiteUrl, user.Naam, localUserLand, localUserWoonplaats);
+                bool succes = user.PlaceAdvertisement(inputTitel.Text, inputPrijstype.SelectedValue.ToLower(), localVraagprijsOptie, localBiedenVanafBedrag, localPrijsbedrag,
+                                        boolPaypal, rubriekNummer, txtWithSpaces, localWebsiteUrl, user.Naam, user.AdverteerderNummer, user.Postcode, null, null);
                 if (succes)
                 {
-                    addingFailureText.Text = "<span class=\"text-warning\">Je advertentie is succesvol geplaatst.</span>";
-                    addingFailureText.Visible = true;
+                    Response.Redirect("advertisementSummary.aspx");
                 }
                 else
                 {
