@@ -18,4 +18,3 @@ C:\Users\User\Documents\GitHub\SE2\IndividueleOpdracht\bin\IndividueleOpdracht.p
 C:\Users\User\Documents\GitHub\SE2\IndividueleOpdracht\bin\Oracle.ManagedDataAccess.dll
 C:\Users\User\Documents\GitHub\SE2\IndividueleOpdracht\obj\Debug\IndividueleOpdracht.dll
 C:\Users\User\Documents\GitHub\SE2\IndividueleOpdracht\obj\Debug\IndividueleOpdracht.pdb
-C:\Users\User\Documents\GitHub\SE2\IndividueleOpdracht\obj\Debug\IndividueleOpdracht.csprojResolveAssemblyReference.cache
