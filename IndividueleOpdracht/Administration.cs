@@ -399,5 +399,132 @@ namespace IndividueleOpdracht
 
             return producten;                   
         }
+
+        public List<Product> GetCurrentUserProductAdvertisements(int adverteerderNummer)
+        {
+            string query = "SELECT a.rubriekNummer, a.adverteerderNummer, a.advertentieTekst, a.websiteUrl, a.naamBijAdvertentie, a.telefoonBijAdvertentie, a.postcode, a.plaatsdatum, " +
+                            "       p.titel, p.prijsType, p.vraagPrijsOptie, p.biedenVanafBedrag, p.prijsBedrag, p.boolPaypal, p.land, p.woonplaats " +
+                            "FROM advertentie a, product p " +
+                            "WHERE a.advertentieNummer = p.advertentieNummer " +
+                            "AND adverteerderNummer = :ADVERTEERDERNUMMER " +
+                            "ORDER BY plaatsDatum DESC";
+
+            OracleParameter adverteerderNummerParameter = new OracleParameter(":ADVERTEERDERNUMMER", adverteerderNummer);
+            OracleDataReader odr = DatabaseConnection.ExecuteQuery(query, adverteerderNummerParameter);
+            List<Product> producten = new List<Product>();
+
+            while (odr.Read())
+            {
+                // Eerst uitlezen en controleren van de data uit de odr.
+                int rubriekNummer = odr.GetInt32(0);
+                string advertentieTekst = odr.GetString(2);
+                string naam = odr.GetString(4);
+                DateTime plaatsDatum = odr.GetDateTime(7);
+                string titel = odr.GetString(8);
+                string prijsType = odr.GetString(9);
+
+                string websiteUrl;
+                if (odr.IsDBNull(3))
+                {
+                    websiteUrl = null;
+                }
+                else
+                {
+                    websiteUrl = odr.GetString(3);
+                }
+
+                int telefoon;
+                if (odr.IsDBNull(5))
+                {
+                    // Geef een onmogelijke waarden.
+                    telefoon = -999;
+                }
+                else
+                {
+                    telefoon = odr.GetInt32(5);
+                }
+
+                string postcode;
+                if (odr.IsDBNull(6))
+                {
+                    postcode = null;
+                }
+                else
+                {
+                    postcode = odr.GetString(6);
+                }
+
+                string vraagPrijsOptie;
+                if (odr.IsDBNull(10))
+                {
+                    vraagPrijsOptie = null;
+                }
+                else
+                {
+                    vraagPrijsOptie = odr.GetString(10);
+                }
+
+                decimal biedenVanafBedrag;
+                if (odr.IsDBNull(11))
+                {
+                    // Geef een onmogelijke waarden.
+                    biedenVanafBedrag = -999M;
+                }
+                else
+                {
+                    biedenVanafBedrag = odr.GetDecimal(11);
+                }
+
+                decimal prijsBedrag;
+                if (odr.IsDBNull(12))
+                {
+                    // Geef een onmogelijke waarden.
+                    prijsBedrag = -999M;
+                }
+                else
+                {
+                    prijsBedrag = odr.GetDecimal(12);
+                }
+                string payPalString = odr.GetString(13);
+                bool payPal = false;
+                if (payPalString.Trim() == "ja")
+                {
+                    payPal = true;
+                }
+
+                string land;
+                if (odr.IsDBNull(14))
+                {
+                    land = null;
+                }
+                else
+                {
+                    land = odr.GetString(14);
+                }
+                string woonplaats;
+                if (odr.IsDBNull(15))
+                {
+                    woonplaats = null;
+                }
+                else
+                {
+                    woonplaats = odr.GetString(15);
+                }
+
+
+                if (vraagPrijsOptie == null && biedenVanafBedrag == -999M && prijsBedrag == -999M)
+                {
+                    Product product = new Product(titel, prijsType, payPal, rubriekNummer, advertentieTekst, websiteUrl, naam, telefoon, postcode, plaatsDatum, adverteerderNummer);
+                    producten.Add(product);
+                }
+                else
+                {
+                    Product product = new Product(titel, prijsType, vraagPrijsOptie, biedenVanafBedrag, prijsBedrag, payPal, rubriekNummer, advertentieTekst, websiteUrl, naam, telefoon, postcode, plaatsDatum, adverteerderNummer);
+                    producten.Add(product);
+                }
+            }
+
+            return producten;
+        }
     }
 }

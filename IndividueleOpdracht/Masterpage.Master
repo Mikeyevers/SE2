@@ -50,7 +50,7 @@
           <li class="dropdown">
             <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Mijn marktplaats<b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="javascript:void(0)">Mijn advertenties</a></li>
+              <li><a href="myAdvertisements.aspx">Mijn advertenties</a></li>
               <li><a href="javascript:void(0)">Bewaarde advertenties</a></li>
               <li><a href="javascript:void(0)">Favorieten adverteerders</a></li>
              <li class="divider"></li>
